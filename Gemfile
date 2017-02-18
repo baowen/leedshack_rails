@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'haml-rails'
+gem 'govuk_template', '~> 0.19.1'
+gem 'govuk_frontend_toolkit', '~> 5.0.2'
+gem 'govuk_elements_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
