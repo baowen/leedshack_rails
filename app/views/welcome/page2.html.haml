@@ -1,0 +1,32 @@
+= render "back_link"
+
+- if ! @errors.blank?
+  .error-summary
+    %h1.heading-medium.error-summary-heading
+      There was a problem
+    %p Please amend the following details:
+    %ul.error-summary-list
+      - @errors.each do |k,v|
+        %li.error-message
+          %a{href: "#" + k.to_s, "data-turbolinks" => "false"} #{v}
+
+%h1.heading-large Page 2
+
+= form_tag welcome_page2_path do
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:name)))}
+    .form-label Name
+    - if (!@errors.blank?) && (@errors.key? (:name))
+      .error-message
+        = @errors[:name]
+    = text_field_tag :name, params[:name], class: 'form-control', maxlength: "250"
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:phone_number_landline)))}
+    .form-label Contact number
+    - if (!@errors.blank?) && (@errors.key? (:phone_number))
+      .error-message
+        = @errors[:phone_number]
+    = text_field_tag :phone_number, params[:phone_number], class: 'form-control', maxlength: "50"
+
+
+  %p= submit_tag 'Continue', class: 'button'
