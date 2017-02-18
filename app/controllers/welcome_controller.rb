@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 
+  around_action :handle_post
+
   def page1
   end
 
