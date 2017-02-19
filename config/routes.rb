@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'welcome/page2'
   post 'welcome/page2'
 
+  get 'welcome/facebook_login'
+  post 'welcome/facebook_login'
+
   root 'welcome#index'
 
 end

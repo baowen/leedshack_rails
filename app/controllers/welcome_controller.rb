@@ -14,6 +14,14 @@ class WelcomeController < ApplicationController
   end
 
   def page2_post
+
+    redirect_to welcome_facebook_login_path
+  end
+
+  def facebook_login
+  end
+
+  def facebook_login_post
   end
 
 
