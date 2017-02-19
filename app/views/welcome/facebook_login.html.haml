@@ -12,9 +12,17 @@
 
 %h1.heading-large Facebook login
 
-%fb:login-button{scope: "public_profile,email", onlogin: "checkLoginState();"}
+%fb:login-button{scope: "public_profile,email", onlogin: "checkLoginState();", "data-size": "xlarge", "data-show-faces": "false", "data-auto-logout-link": "true", "data-max-rows": "5"}
+
+=# link_to "Logout", "", :onclick => "logout(); return false"
+
+=# link_to "Login", "", :onclick => "login(); return false"
+
+.fb-login-button= content_tag :div, nil, "data-max-rows": "5", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": "true"
 
 = content_tag :div, nil, id: "status"
+
+= content_tag :div, nil, id: "fb-root"
 
 :javascript
   // This is called with the results from from FB.getLoginStatus().
@@ -91,7 +99,24 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
+      console.log('The response object looks like '+response.last_name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
+  }
+
+  function logout() {
+    FB.logout(function(response) {
+    // user is now logged out
+      statusChangeCallback(response);
+      console.log('logging the user out');
+    });
+  }
+
+  function login() {
+    FB.login(function(response) {
+    // user is now logged out
+      statusChangeCallback(response);
+      console.log('logging the user in');
+    }, { auth_type: 'reauthenticate' });
   }
