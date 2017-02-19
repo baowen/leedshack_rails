@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'welcome/facebook_login'
   post 'welcome/facebook_login'
 
+  get 'welcome/facebook_data'
+  post 'welcome/facebook_data'
+
   root 'welcome#index'
 
 end

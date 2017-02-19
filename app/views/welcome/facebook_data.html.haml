@@ -1,0 +1,50 @@
+= render "back_link"
+
+
+%h1.heading-large Data returned from the facebook login
+
+.grid-row
+
+  .column-two-thirds
+    .table-summary
+      %table
+        %thead
+          %tr
+            %th.confirm-first-col-width{scope: "col"}
+            %th{scope: "col"}
+        %tbody
+          %tr
+            %td ID:
+            %td
+              %strong.bold-small
+                =@data['id']
+          %tr
+            %td First name:
+            %td
+              %strong.bold-small
+                =@data['first_name']
+          %tr
+            %td Last name:
+            %td
+              %strong.bold-small
+                =@data['last_name']
+          %tr
+            %td Age range min:
+            %td
+              %strong.bold-small
+                =@data['age_range_min']
+          %tr
+            %td email:
+            %td
+              %strong.bold-small
+                =@data['email']
+          %tr
+            %td Last updated:
+            %td
+              %strong.bold-small
+                =@data['updated_time']
+          %tr
+            %td Picture:
+            %td
+              %strong.bold-small
+                =image_tag @data['picture']

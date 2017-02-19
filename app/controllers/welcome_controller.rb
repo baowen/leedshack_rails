@@ -22,6 +22,31 @@ class WelcomeController < ApplicationController
   end
 
   def facebook_login_post
+    session.delete(:data)
+
+
+    @application = session[:application]
+
+    @data = Hash.new
+    @data[:id] = params[:id]
+    @data[:first_name] = params[:first_name]
+    @data[:last_name] = params[:last_name]
+    @data[:age_range_min] = params[:age_range_min]
+    @data[:email] = params[:email]
+    @data[:updated_time] = params[:updated_time]
+    @data[:picture] = params[:picture]
+
+    session[:data] = @data
+
+    redirect_to welcome_facebook_data_path
+  end
+
+  def facebook_data
+    @data = session[:data]
+
+  end
+
+  def facebook_data_post
   end
 
 

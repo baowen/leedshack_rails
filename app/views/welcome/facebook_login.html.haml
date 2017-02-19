@@ -20,10 +20,21 @@
 
 .fb-login-button= content_tag :div, nil, "data-max-rows": "5", "data-size": "xlarge", "data-show-faces": "true", "data-auto-logout-link": "true"
 
-= content_tag :div, nil, id: "status"
+%p
+  = content_tag :div, nil, id: "status"
 
 = content_tag :div, nil, id: "fb-root"
 
+= form_tag welcome_facebook_login_path do
+  = hidden_field_tag :id
+  = hidden_field_tag :first_name
+  = hidden_field_tag :last_name
+  = hidden_field_tag :age_range_min
+  = hidden_field_tag :email
+  = hidden_field_tag :updated_time
+  = hidden_field_tag :picture
+
+  %p= submit_tag 'Continue', class: 'button'
 :javascript
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -99,9 +110,21 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log('The response object looks like '+response.last_name);
+
+
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+    });
+
+    FB.api('/me', {fields: 'id,first_name,last_name,age_range,email,updated_time,picture'}, function(response) {
+      document.getElementById("id").value = response.id;
+      document.getElementById("first_name").value = response.first_name;
+      document.getElementById("last_name").value = response.last_name;
+      document.getElementById("age_range_min").value = response.age_range.min;
+      document.getElementById("email").value = response.email;
+      document.getElementById("updated_time").value = response.updated_time;
+      document.getElementById("picture").value = response.picture.data.url;
+      console.log(response);
     });
   }
 
