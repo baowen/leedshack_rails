@@ -1,9 +1,11 @@
 %h1.heading-large
   Leeds identity hack - DVLA
 
-  %p.lede Click on start now to begin.....  
+  %p.lede Click on start now to begin.....
 
-  =link_to 'Start now', welcome_page1_path, class: 'button button-start'
+= form_tag welcome_page2_path do
+  %p= submit_tag 'Start now', class: 'button button-start'
+
 
 .grid-row
 
