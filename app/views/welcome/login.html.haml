@@ -1,0 +1,20 @@
+
+= render "back_link"
+
+%h1.heading-large
+  Login
+
+  %p.lede Please enter your driver number
+
+
+= form_tag welcome_login_path do
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:name)))}
+    .form-label driver number
+    - if (!@errors.blank?) && (@errors.key? (:name))
+      .error-message
+        = @errors[:name]
+    = text_field_tag :driver_number, params[:driver_number], class: 'form-control', maxlength: "250"
+
+
+  %p= submit_tag 'login', class: 'button'
