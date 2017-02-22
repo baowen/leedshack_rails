@@ -51,13 +51,14 @@ class WelcomeController < ApplicationController
 
   def internal_portal_post
 
-    redirect_to welcome_generated_code_path 
+    redirect_to welcome_generated_code_path
   end
 
   def generated_code
   end
 
   def generated_code_post
+    redirect_to welcome_enter_access_code_path
   end
 
 
@@ -67,7 +68,7 @@ class WelcomeController < ApplicationController
 
   def webchat_post
 
-    redirect_to welcome_enter_access_code_path
+    redirect_to welcome_internal_portal_path
   end
 
   def enter_bank_details
