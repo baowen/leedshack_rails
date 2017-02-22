@@ -1,0 +1,17 @@
+
+= render "back_link"
+
+
+%h1.heading-large Upload a photo
+%p Take a photo of your face using your camera and upload it.
+
+
+= form_tag welcome_upload_photo_path do
+
+
+  = file_field_tag :identified_by_file, multiple: true
+
+  %p
+  %p
+
+  %p= submit_tag 'Continue', class: 'button'

@@ -51,12 +51,36 @@ class WelcomeController < ApplicationController
     redirect_to welcome_login_or_signup_path
   end
 
+  def photo_confirmed
+  end
+
+  def photo_confirmed_post
+    redirect_to welcome_enter_bank_details_path
+  end
+
+
   def upload_photo_option
   end
 
   def upload_photo_option_post
-    redirect_to welcome_webchat_question_path
+    puts "***********************    photo is not blank  #{params[:photo]}"
+    if !params[:photo].blank? && params[:photo] == 'yes'
+      puts "***********************    photo is not blank  #{params[:photo]}"
+      redirect_to welcome_upload_photo_path
+
+    else
+      redirect_to welcome_webchat_question_path
+    end
   end
+
+  def upload_photo
+  end
+
+  def upload_photo_post
+
+    redirect_to welcome_photo_confirmed_path
+  end
+
 
 
   def login

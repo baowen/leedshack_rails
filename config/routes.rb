@@ -19,6 +19,13 @@ Rails.application.routes.draw do
   get 'welcome/webchat_question'
   post 'welcome/webchat_question'
 
+  get 'welcome/upload_photo'
+  post 'welcome/upload_photo'
+
+  get 'welcome/photo_confirmed'
+  post 'welcome/photo_confirmed'
+
+
   get 'welcome/webchat'
   post 'welcome/webchat'
 
@@ -27,6 +34,9 @@ Rails.application.routes.draw do
 
   get 'welcome/success'
   post 'welcome/success'
+
+  get 'welcome/upload_photo'
+  post 'welcome/upload_photo'
 
   get 'welcome/page2'
   post 'welcome/page2'

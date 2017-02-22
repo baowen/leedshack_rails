@@ -13,10 +13,10 @@
     %fieldset
       %legend.visuallyhidden{ id: "login_or_signup" } would you like to login or sign up
       = label_tag nil, class: "block-label selection-button-radio", for: "radio-1" do
-        = radio_button_tag :photo, 'login', nil, id: "radio-1"
+        = radio_button_tag :photo, 'yes', nil, id: "radio-1"
         Upload a photo
       = label_tag nil, class: "block-label selection-button-radio", for: "radio-2" do
-        = radio_button_tag :photo, 'signup', nil, id: "radio-2"
+        = radio_button_tag :photo, 'no', nil, id: "radio-2"
         I don't want to upload a photo
 
     %br
