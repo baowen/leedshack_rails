@@ -1,21 +1,20 @@
 %h1.heading-large
-  Would you like to use web chat
+  Would you like to use phone
 
+= form_tag welcome_phone_question_path do
 
-= form_tag welcome_webchat_question_path do
-
-  .form-group{ class: !@errors.blank? && @errors[:end_user] ? "error" : ""}
+  .form-group{ class: !@errors.blank? && @errors[:phone] ? "error" : ""}
 
 
 
     %fieldset
-      %legend.visuallyhidden{ id: "login_or_signup" } would you like to login or sign up
+      %legend.visuallyhidden{ id: "phone" } would you like to login or sign up
       = label_tag nil, class: "block-label selection-button-radio", for: "radio-1" do
-        = radio_button_tag :webchat, 'yes', nil, id: "radio-1"
-        Use webchat
+        = radio_button_tag :phone, 'yes', nil, id: "radio-1"
+        Use phone
       = label_tag nil, class: "block-label selection-button-radio", for: "radio-2" do
-        = radio_button_tag :webchat, 'no', nil, id: "radio-2"
-        Don't use web chat
+        = radio_button_tag :phone, 'no', nil, id: "radio-2"
+        Don't use phone
 
     %br
 

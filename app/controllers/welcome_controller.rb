@@ -15,8 +15,43 @@ class WelcomeController < ApplicationController
 
   def webchat_question_post
 
-    redirect_to welcome_webchat_path
+    if !params[:webchat].blank? && params[:webchat] == 'yes'
+      redirect_to welcome_webchat_path
+
+    else
+      redirect_to welcome_phone_question_path
+    end
+
+
   end
+
+  def phone_question
+  end
+
+  def phone_question_post
+
+    if !params[:phone].blank? && params[:phone] == 'yes'
+      redirect_to welcome_phone_access_path
+
+    else
+      redirect_to welcome_webchat_question_path
+    end
+  end
+
+  def phone_access
+  end
+
+  def phone_access_post
+
+    redirect_to welcome_internal_portal_path
+  end
+
+  def internal_portal
+  end
+
+  def internal_portal_post
+  end
+
 
   def webchat
   end

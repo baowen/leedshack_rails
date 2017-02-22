@@ -19,6 +19,15 @@ Rails.application.routes.draw do
   get 'welcome/webchat_question'
   post 'welcome/webchat_question'
 
+  get 'welcome/phone_question'
+  post 'welcome/phone_question'
+
+  get 'welcome/phone_access'
+  post 'welcome/phone_access'
+
+  get 'welcome/internal_portal'
+  post 'welcome/internal_portal'
+
   get 'welcome/upload_photo'
   post 'welcome/upload_photo'
 
