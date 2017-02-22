@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   get 'welcome/internal_portal'
   post 'welcome/internal_portal'
 
+  get 'welcome/generated_code'
+  post 'welcome/generated_code'
+
   get 'welcome/upload_photo'
   post 'welcome/upload_photo'
 

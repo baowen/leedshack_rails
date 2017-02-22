@@ -50,7 +50,16 @@ class WelcomeController < ApplicationController
   end
 
   def internal_portal_post
+
+    redirect_to welcome_generated_code_path 
   end
+
+  def generated_code
+  end
+
+  def generated_code_post
+  end
+
 
 
   def webchat

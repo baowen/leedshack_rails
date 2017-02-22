@@ -8,3 +8,14 @@
   %li VRM/Driver number
   %li Vehicle, vehicle model, colour of vehicle, date aquired vehicle
   %li Driver, test pass date, penalty points, place of birth
+
+
+  %p
+  %p If the answers are correct then click the button below to generate a code.
+
+= form_tag welcome_generated_code_path do
+
+
+
+
+  %p= submit_tag 'Generate code', class: 'button'
