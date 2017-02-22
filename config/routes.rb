@@ -13,6 +13,28 @@ Rails.application.routes.draw do
   get 'welcome/login'
   post 'welcome/login'
 
+  get 'welcome/login_or_signup'
+  post 'welcome/login_or_signup'
+
+  get 'welcome/used_before'
+  post 'welcome/used_before'
+
+  get 'welcome/enter_your_details'
+  post 'welcome/enter_your_details'
+
+  get 'welcome/enter_mobile'
+  post 'welcome/enter_mobile'
+
+  get 'welcome/enter_access_code'
+  post 'welcome/enter_access_code'
+
+
+  get 'welcome/two_step'
+  post 'welcome/two_step'
+
+  get 'welcome/success_two_step'
+  post 'welcome/success_two_step'
+
   get 'welcome/facebook_data'
   post 'welcome/facebook_data'
 

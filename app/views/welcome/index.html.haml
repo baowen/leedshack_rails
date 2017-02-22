@@ -3,8 +3,8 @@
 
   %p.lede Click on start now to begin.....
 
-= form_tag welcome_login_path do
-  %p= submit_tag 'Start now', class: 'button button-start'
+
+  %p= link_to 'Start now', welcome_login_or_signup_path,class: 'button button-start'
 
 
 .grid-row

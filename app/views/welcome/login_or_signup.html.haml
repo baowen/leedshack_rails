@@ -1,0 +1,42 @@
+%h1.heading-large
+  login or sign up
+
+  %p.lede would you like to login or sign up
+
+= form_tag welcome_login_or_signup_path do
+
+  .form-group{ class: !@errors.blank? && @errors[:end_user] ? "error" : ""}
+
+    - if (!@errors.blank?) && (@errors.key? (:login_or_signup))
+      .error-message
+        = @errors[:login_or_signup]
+
+    %fieldset.inline
+      %legend.visuallyhidden{ id: "login_or_signup" } would you like to login or sign up
+      = label_tag nil, class: "block-label selection-button-radio", for: "radio-1" do
+        = radio_button_tag :login_or_signup, 'login', nil, id: "radio-1"
+        Login
+      = label_tag nil, class: "block-label selection-button-radio", for: "radio-2" do
+        = radio_button_tag :login_or_signup, 'signup', nil, id: "radio-2"
+        signup
+
+    %br
+
+  .form-group
+    %p= submit_tag 'Continue', class: 'button'
+
+:javascript
+  $(document).ready(function () {
+    // Use GOV.UK selection-buttons.js to set selected
+    // and focused states for block labels
+    var $blockLabels = $(".block-label input[type='radio'], .block-label input[type='checkbox']")
+    new GOVUK.SelectionButtons($blockLabels) // eslint-disable-line
+    // Use GOV.UK shim-links-with-button-role.js to trigger a link styled to look like a button,
+    // with role="button" when the space key is pressed.
+    GOVUK.shimLinksWithButtonRole.init()
+    // Show and hide toggled content
+    // Where .block-label uses the data-target attribute
+    // to toggle hidden content
+    var showHideContent = new GOVUK.ShowHideContent()
+    showHideContent.init()
+  });

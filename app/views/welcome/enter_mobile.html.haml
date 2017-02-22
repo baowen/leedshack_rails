@@ -1,0 +1,17 @@
+= render "back_link"
+
+
+%h1.heading-large Enter your mobile phone number
+
+= form_tag welcome_enter_mobile_path do
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:name)))}
+    .form-label Mobile phone number
+    - if (!@errors.blank?) && (@errors.key? (:name))
+      .error-message
+        = @errors[:name]
+    = text_field_tag :name, params[:name], class: 'form-control', maxlength: "250"
+
+
+
+  %p= submit_tag 'Send my access code', class: 'button'

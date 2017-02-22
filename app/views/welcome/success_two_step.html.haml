@@ -1,0 +1,14 @@
+= render "back_link"
+
+
+%h1.heading-large You have successfully set up 2-step verification
+
+%p You'll be sent a new access code to your mobile phone every time you sign in
+
+
+= form_tag welcome_success_two_step_path do
+
+
+
+
+  %p= submit_tag 'Continue', class: 'button'

@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require vendor/polyfills/bind
+//= require details.polyfill
 //= require jquery
 //= require jquery_ujs
+//= require govuk/selection-buttons
+//= require govuk/shim-links-with-button-role
 //= require turbolinks
 //= require_tree .

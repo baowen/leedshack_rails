@@ -1,0 +1,17 @@
+= render "back_link"
+
+
+%h1.heading-large Enter your access code
+
+= form_tag welcome_enter_access_code_path do
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:name)))}
+    .form-label Access code
+    - if (!@errors.blank?) && (@errors.key? (:name))
+      .error-message
+        = @errors[:name]
+    = text_field_tag :name, params[:name], class: 'form-control', maxlength: "250"
+
+
+
+  %p= submit_tag 'Continue', class: 'button'

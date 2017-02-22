@@ -15,13 +15,61 @@ class WelcomeController < ApplicationController
 
   def page2_post
 
-    redirect_to welcome_login_path
+    redirect_to welcome_login_or_signup_path
   end
 
   def login
   end
 
   def login_post
+
+    redirect_to welcome_used_before_path
+  end
+
+  def login_or_signup
+  end
+
+  def login_or_signup_post
+
+    redirect_to welcome_login_path
+  end
+
+  def enter_your_details
+  end
+
+  def enter_your_details_post
+
+    redirect_to welcome_two_step_path
+  end
+
+  def used_before
+  end
+
+  def used_before_post
+
+    redirect_to welcome_enter_your_details_path
+  end
+
+  def two_step
+  end
+
+  def two_step_post
+
+    redirect_to welcome_enter_mobile_path
+  end
+
+  def enter_mobile
+  end
+
+  def enter_mobile_post
+    redirect_to welcome_enter_access_code_path
+  end
+
+  def enter_access_code
+  end
+
+  def enter_access_code_post
+    redirect_to welcome_success_two_step_path
   end
 
 

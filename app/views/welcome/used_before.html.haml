@@ -1,0 +1,40 @@
+%h1.heading-large
+  You have used the service before
+
+  %p.lede would you like to use verify again or use another method of verification
+
+= form_tag welcome_used_before_path do
+
+  .form-group{ class: !@errors.blank? && @errors[:end_user] ? "error" : ""}
+
+
+
+    %fieldset.inline
+      %legend.visuallyhidden{ id: "used_before" } use verify or another method
+      = label_tag nil, class: "block-label selection-button-radio", for: "radio-1" do
+        = radio_button_tag :used_before, 'verify', nil, id: "radio-1"
+        Verify
+      = label_tag nil, class: "block-label selection-button-radio", for: "radio-2" do
+        = radio_button_tag :used_before, 'dvla', nil, id: "radio-2"
+        Another method
+
+    %br
+
+  .form-group
+    %p= submit_tag 'Continue', class: 'button'
+
+:javascript
+  $(document).ready(function () {
+    // Use GOV.UK selection-buttons.js to set selected
+    // and focused states for block labels
+    var $blockLabels = $(".block-label input[type='radio'], .block-label input[type='checkbox']")
+    new GOVUK.SelectionButtons($blockLabels) // eslint-disable-line
+    // Use GOV.UK shim-links-with-button-role.js to trigger a link styled to look like a button,
+    // with role="button" when the space key is pressed.
+    GOVUK.shimLinksWithButtonRole.init()
+    // Show and hide toggled content
+    // Where .block-label uses the data-target attribute
+    // to toggle hidden content
+    var showHideContent = new GOVUK.ShowHideContent()
+    showHideContent.init()
+  });

@@ -1,0 +1,30 @@
+= render "back_link"
+
+
+%h1.heading-large Enter your details
+
+= form_tag welcome_enter_your_details_path do
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:name)))}
+    .form-label Full name
+    - if (!@errors.blank?) && (@errors.key? (:name))
+      .error-message
+        = @errors[:name]
+    = text_field_tag :name, params[:name], class: 'form-control', maxlength: "250"
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:email)))}
+    .form-label Email address
+    - if (!@errors.blank?) && (@errors.key? (:email))
+      .error-message
+        = @errors[:email]
+    = text_field_tag :email, params[:email], class: 'form-control', maxlength: "250"
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:password)))}
+    .form-label Create your password
+    - if (!@errors.blank?) && (@errors.key? (:password))
+      .error-message
+        = @errors[:password]
+    = text_field_tag :password, params[:password], class: 'form-control', maxlength: "250"
+
+
+  %p= submit_tag 'Continue', class: 'button'
