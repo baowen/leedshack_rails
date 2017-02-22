@@ -3,10 +3,12 @@
 
 %h1.heading-large Enter your access code
 
+%p Enter your access code below and press continue.
+
 = form_tag welcome_enter_access_code_path do
 
   .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:name)))}
-    .form-label Access code
+    .form-label 
     - if (!@errors.blank?) && (@errors.key? (:name))
       .error-message
         = @errors[:name]

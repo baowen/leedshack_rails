@@ -1,0 +1,24 @@
+= render "back_link"
+
+
+
+%h1.heading-large Enter your bank account details
+
+= form_tag welcome_enter_bank_details_path do
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:accountno)))}
+    .form-label Account number
+    - if (!@errors.blank?) && (@errors.key? (:accountno))
+      .error-message
+        = @errors[:accountno]
+    = text_field_tag :accountno, params[:accountno], class: 'form-control', maxlength: "250"
+
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:sort)))}
+    .form-label Sort code
+    - if (!@errors.blank?) && (@errors.key? (:sort))
+      .error-message
+        = @errors[:sort]
+    = text_field_tag :sort, params[:sort], class: 'form-control', maxlength: "50"
+
+
+  %p= submit_tag 'Continue', class: 'button'

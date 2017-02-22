@@ -1,5 +1,14 @@
 
 = render "back_link"
 
-%h1.heading-large
-  Verify
+
+%h1.heading-large Verify
+%p you are in verify
+
+
+= form_tag welcome_verify_path do
+
+
+
+
+  %p= submit_tag 'Continue', class: 'button'

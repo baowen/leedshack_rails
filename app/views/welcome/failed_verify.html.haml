@@ -1,0 +1,27 @@
+= render "back_link"
+
+
+%h1.heading-large Verify has failed
+%p other ways to tell DVLA
+
+
+
+
+= form_tag welcome_failed_verify_path do
+
+  .form-group{ class: !@errors.blank? && @errors[:end_user] ? "error" : ""}
+
+
+
+
+    %fieldset
+      %legend.visuallyhidden{ id: "used_before" } use verify again or another method
+      = label_tag nil, class: "block-label selection-button-radio", for: "radio-1" do
+        = radio_button_tag :used_before, 'verify', nil, id: "radio-1"
+        Verify
+      = label_tag nil, class: "block-label selection-button-radio", for: "radio-2" do
+        = radio_button_tag :used_before, 'dvla', nil, id: "radio-2"
+        Prove who you are using an alternative method
+
+
+  %p= submit_tag 'Continue', class: 'button'

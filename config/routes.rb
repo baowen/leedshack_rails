@@ -4,6 +4,30 @@ Rails.application.routes.draw do
   get 'welcome/page1'
   post 'welcome/page1'
 
+  get 'welcome/verify'
+  post 'welcome/verify'
+
+  get 'welcome/failed_verify'
+  post 'welcome/failed_verify'
+
+  get 'welcome/confirm_who'
+  post 'welcome/confirm_who'
+
+  get 'welcome/upload_photo_option'
+  post 'welcome/upload_photo_option'
+
+  get 'welcome/webchat_question'
+  post 'welcome/webchat_question'
+
+  get 'welcome/webchat'
+  post 'welcome/webchat'
+
+  get 'welcome/enter_bank_details'
+  post 'welcome/enter_bank_details'
+
+  get 'welcome/success'
+  post 'welcome/success'
+
   get 'welcome/page2'
   post 'welcome/page2'
 
@@ -34,6 +58,9 @@ Rails.application.routes.draw do
 
   get 'welcome/success_two_step'
   post 'welcome/success_two_step'
+
+  get 'welcome/confirm_who'
+  post 'welcome/confirm_who_post'
 
   get 'welcome/facebook_data'
   post 'welcome/facebook_data'

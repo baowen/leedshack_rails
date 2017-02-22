@@ -10,6 +10,39 @@ class WelcomeController < ApplicationController
     redirect_to welcome_page2_path
   end
 
+  def webchat_question
+  end
+
+  def webchat_question_post
+
+    redirect_to welcome_webchat_path
+  end
+
+  def webchat
+  end
+
+  def webchat_post
+
+    redirect_to welcome_enter_access_code_path
+  end
+
+  def enter_bank_details
+  end
+
+  def enter_bank_details_post
+  end
+
+
+
+
+
+  def confirm_who
+  end
+
+  def confirm_who_post
+    redirect_to welcome_upload_photo_option_path
+  end
+
   def page2
   end
 
@@ -18,12 +51,42 @@ class WelcomeController < ApplicationController
     redirect_to welcome_login_or_signup_path
   end
 
+  def upload_photo_option
+  end
+
+  def upload_photo_option_post
+    redirect_to welcome_webchat_question_path
+  end
+
+
   def login
   end
 
   def login_post
 
-    redirect_to welcome_used_before_path
+    redirect_to welcome_verify_path
+  end
+
+  def enter_bank_details
+  end
+
+  def enter_bank_details_post
+    redirect_to welcome_success_path
+  end
+
+  def verify
+  end
+
+  def verify_post
+    redirect_to welcome_failed_verify_path
+  end
+
+  def failed_verify
+  end
+
+  def failed_verify_post
+
+    redirect_to welcome_confirm_who_path
   end
 
   def login_or_signup
@@ -69,9 +132,21 @@ class WelcomeController < ApplicationController
   end
 
   def enter_access_code_post
-    redirect_to welcome_success_two_step_path
+    redirect_to welcome_enter_bank_details_path
   end
 
+  def success
+  end
+
+  def success_post
+  end
+
+  def success_two_step
+  end
+
+  def success_two_step_post
+    redirect_to welcome_confirm_who_path
+  end
 
   def facebook_login
   end

@@ -19,6 +19,25 @@
         = @errors[:email]
     = text_field_tag :email, params[:email], class: 'form-control', maxlength: "250"
 
+  .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:delivery_date_day)))}
+    .form-label Date of birth
+    .form-hint For example, 31 3 2017
+    .form-date
+      - if (!@errors.blank?) && (@errors.key? (:delivery_date_day))
+        .error-message
+          = @errors[:delivery_date_day]
+      .form-group.form-group-day
+        .form-label Day
+        =text_field_tag :delivery_date_day,  params[:delivery_date_day], class: 'form-control'
+      .form-group.form-group-month
+        .form-label Month
+        =text_field_tag :delivery_date_month,  params[:delivery_date_month], class: 'form-control'
+      .form-group.form-group-year
+        .form-label Year
+        =text_field_tag :delivery_date_year,  params[:delivery_date_year], class: 'form-control'
+
+
+
   .form-group{:class => ("error" if (!@errors.blank?) && (@errors.key? (:password)))}
     .form-label Create your password
     - if (!@errors.blank?) && (@errors.key? (:password))
